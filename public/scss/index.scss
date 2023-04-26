@@ -1,0 +1,80 @@
+@import "./global.scss";
+
+.container {
+	display: flex;
+	position: absolute;
+	top: 12%;
+
+	justify-content: center;
+	
+	width: 97.5%;
+	height: 80%;
+
+	font-family: 'Poppins', Arial, Helvetica, sans-serif;
+
+	.hero {
+		width: 100%;
+		padding: 10% 5%;
+		border-radius: $border;
+		outline: $out;
+
+		.welcome {
+
+			h1 {
+				font-weight: 500;
+				font-size: 3.1em;
+			}
+
+			h3 {
+				font-weight: 400;
+				font-size: 2.3em;
+				color: #626262;
+			}
+
+			.description {
+				width: 35%;
+				font-weight: 300;
+				font-size: 1.3em;
+				color: #626262;
+			}
+		}
+
+		.buttons {
+			margin-top: 4%;
+
+			.btn {
+				padding: 0.5% 1%;
+				border: none;
+				border-radius: 24px;
+				font-weight: 500;
+				font-size: 0.9em;
+				width: 7%;
+				text-align: center;
+				margin-right: 10px;
+
+				transition: 0.3s all;
+
+				&.filled {
+					background-color: black;
+					color: white;
+
+					&:hover {
+						outline: $out;
+						background-color: white;
+						color: black;
+					}
+				}
+
+				&.outline {
+					outline: $out;
+					background-color: white;
+
+					&:hover {
+						background-color: black;
+						color: white;
+					}
+				}
+			}
+		}
+	}
+}
