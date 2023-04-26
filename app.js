@@ -1,3 +1,4 @@
+#!/usr/bin/node
 import express from "express";
 import sass from "sass";
 import { writeFile, readdir } from "fs/promises";
