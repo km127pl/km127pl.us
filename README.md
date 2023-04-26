@@ -1,5 +1,20 @@
 # km127pl.us [![Docker Image](https://github.com/km127pl/km127pl.us/actions/workflows/docker-image.yml/badge.svg)](https://github.com/km127pl/km127pl.us/actions/workflows/docker-image.yml)
 
+<details>
+<summary>Preview</summary>
+<br>
+
+#### Homepage
+
+![km127pl website](/demo/demo.png)
+
+#### 404 Page
+
+![km127pl website](/demo/demo-404.png)
+
+
+</details>
+
 ### Running
 1. Install all of the dependencies
 ```sh
