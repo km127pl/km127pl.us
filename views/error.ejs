@@ -1,0 +1,16 @@
+<%- 
+include('components/head.ejs', {
+    title: "homepage"
+})
+%>
+
+<link rel="stylesheet" href="/public/css/error.css">
+
+<div class="container">
+	<div class="error">
+		<div class="id"><%= error.id %></div>
+		<hr>
+		<div class="msg"><%= error.message %></div>
+		<button class="btn filled" onclick="javascript:document.location.href='/'">GO BACK</button>
+	</div>
+</div>

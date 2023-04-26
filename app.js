@@ -32,6 +32,15 @@ app.get("/", (req, res) => {
 	return res.render("index.ejs");
 });
 
+app.get('*', (req, res) => {
+	return res.render('error.ejs', {
+		error: {
+			id: "404",
+			message: "Page not found"
+		}
+	});
+})
+
 app.listen(8080, () => {
 	console.info("Listening on http://localhost:8080");
 });
