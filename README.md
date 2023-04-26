@@ -1,4 +1,4 @@
-# km127pl.us
+# km127pl.us [![Docker Image](https://github.com/km127pl/km127pl.us/actions/workflows/docker-image.yml/badge.svg)](https://github.com/km127pl/km127pl.us/actions/workflows/docker-image.yml)
 
 ### Running
 1. Install all of the dependencies
