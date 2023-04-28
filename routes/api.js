@@ -1,7 +1,7 @@
 import express from 'express';
 const api = express.Router();
 import mariadb from 'mariadb';
-import adminApi from "./admin.js";
+import adminApi, { isLoggedIn } from "./admin.js";
 import { Config } from "../config.js";
 
 // create a mariadb pool
@@ -23,13 +23,68 @@ api.get('/blog/posts', async (req, res) => {
 
 		const posts = await connection.query("SELECT * FROM posts ORDER BY creation_date DESC LIMIT 10");
 
+		// Release the connection
+		connection.release();
+
 		res.json(posts);
 	} catch (e) {
-		res.send(e);
+		res.status(500).json({
+			message: 'Unexpected error has occured'
+		});
 	}
 });
 
-api.get('/')
+api.get('/blog/posts/:id', async (req, res) => {
+	const id = req.params.id;
+
+	let connection;
+	try {
+		connection = await pool.getConnection();
+
+		const post = await connection.query("SELECT * FROM posts WHERE id = ?", [id]);
+
+		// Release the connection
+		connection.release();
+
+		res.json(post);
+	} catch (e) {
+		res.status(500).json({
+			message: 'Unexpected error has occured'
+		});
+	}
+});
+
+
+api.put('/blog/posts/:id', async (req, res) => {
+	if (!isLoggedIn(req)) {
+		return res.status(401).json({
+			message: 'Unauthorized.'
+		});
+	}
+	const postId = req.params.id;
+	const { description, thumbnail, url, title } = req.body;
+
+	try {
+		// Get a connection from the pool
+		const conn = await pool.getConnection();
+
+		// Update the post in the database
+		const result = await conn.query(`
+      UPDATE posts 
+      SET description = ?, thumbnail = ?, url = ?, title = ?, last_edited = NOW() 
+      WHERE id = ?
+    `, [description, thumbnail, url, title, postId]);
+
+		// Release the connection
+		conn.release();
+
+		// Send the updated post as a response
+		res.json(result);
+	} catch (err) {
+		console.error(err);
+		res.status(500).json({ message: 'Error updating post.' });
+	}
+});
 
 api.get("*", (req, res) => {
 	return res.json({

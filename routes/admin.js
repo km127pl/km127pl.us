@@ -19,7 +19,7 @@ const pool = mariadb.createPool({
  * @param {*} req  the request 
  * @returns  a boolean
  */
-const isLoggedIn = (req) => {
+export const isLoggedIn = (req) => {
 	if (req.session == undefined || req.session.user == undefined) return false;
 	if ((req.session?.user) || req.session.user?.loggedIn == true) {
 		return false;
