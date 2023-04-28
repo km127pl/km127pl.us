@@ -1,0 +1,7 @@
+export const Config = {
+	HOST: "127.0.0.1",
+	USER: "root",
+	PASSWORD: "12345678",
+	DATABASE: "km127pl",
+	CONNECTION_LIMIT: 10
+}

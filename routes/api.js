@@ -2,18 +2,19 @@ import express from 'express';
 const api = express.Router();
 import mariadb from 'mariadb';
 import adminApi from "./admin.js";
+import { Config } from "../config.js";
 
-api.use('/admin', adminApi);
-
+// create a mariadb pool
 const pool = mariadb.createPool({
 	//TODO:replace with env variables
-	host: "127.0.0.1",
-	user: "root",
-	password: "12345678",
-	database: "km127pl",
-	connectionLimit: 10
+	host: Config.HOST,
+	user: Config.USER,
+	password: Config.PASSWORD,
+	database: Config.DATABASE,
+	connectionLimit: Config.CONNECTION_LIMIT
 });
 
+api.use('/admin', adminApi);
 
 api.get('/blog/posts', async (req, res) => {
 	let connection;

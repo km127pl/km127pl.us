@@ -2,12 +2,10 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import bodyParser from "body-parser";
-import dotenv from 'dotenv';
 import session from 'express-session';
 import api from './routes/api.js';
 
 const app = express();
-dotenv.config();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('trust proxy', 1)
@@ -18,7 +16,7 @@ app.use(session({
 	cookie: {
 		secure: false,
 		path: '/',
-		maxAge: 3600 * 24
+		maxAge: 3600 * 60 * 60 * 24
 	},
 	name: "km"
 }))

@@ -2,15 +2,16 @@ import { Router } from 'express';
 const admin = Router();
 import mariadb from 'mariadb';
 import { compare } from 'bcrypt';
+import { Config } from "../config.js";
 
 // create a mariadb pool
 const pool = mariadb.createPool({
 	//TODO:replace with env variables
-	host: "127.0.0.1",
-	user: "root",
-	password: "12345678",
-	database: "km127pl",
-	connectionLimit: 10
+	host: Config.HOST,
+	user: Config.USER,
+	password: Config.PASSWORD,
+	database: Config.DATABASE,
+	connectionLimit: Config.CONNECTION_LIMIT
 });
 
 /**

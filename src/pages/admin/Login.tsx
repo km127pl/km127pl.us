@@ -1,10 +1,4 @@
-import { redirect } from "react-router-dom";
 import { Modal } from "../../components/Modal"
-import { useEffect, useState } from "react";
-
-interface SessionAPIResponse extends Response {
-	loggedIn: boolean
-}
 
 export const LoginPage = () => {
 	const urlParams = new URLSearchParams(window.location.search);
