@@ -33,9 +33,17 @@ export const isLoggedIn = (req) => {
  * } : JSONObject
  */
 admin.get('/session', async (req, res) => {
-	return res.json({
-		loggedIn: isLoggedIn(req)
-	})
+	if (isLoggedIn(req)) {
+		return res.json({
+			isLoggedIn: true,
+			username: req.session.user.username
+		});
+	} else {
+		return res.json({
+			isLoggedIn: false,
+			username: 'undefined'
+		})
+	}
 })
 
 /**

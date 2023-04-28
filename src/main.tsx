@@ -10,6 +10,7 @@ import {
 import { Error } from './pages/Error';
 import { LoginPage } from './pages/admin/Login';
 import { Blog } from './pages/Blog';
+import { AdminBlogPage } from './pages/admin/Blog';
 
 declare global {
 	// eslint-disable-next-line @typescript-eslint/no-namespace
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
 	{
 		path: "/admin/login",
 		element: <LoginPage />,
+		errorElement: <Error />
+	},
+	{
+		path: "/admin/blog",
+		element: <AdminBlogPage />,
 		errorElement: <Error />
 	},
 	{
