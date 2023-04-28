@@ -1,9 +1,21 @@
+import { useNavigate } from "react-router-dom";
+import useSession from "../../UseSession";
 import { Modal } from "../../components/Modal"
 
 export const LoginPage = () => {
 	const urlParams = new URLSearchParams(window.location.search);
 	const code = urlParams.get('code');
 	let modal;
+
+	const session = useSession();
+	const navigate = useNavigate();
+
+	if (session.isLoggedIn) {
+		navigate("/admin/blog");
+		return <>
+			<h1>You are already logged in</h1>
+		</>;
+	}
 
 	if (code == "0x00") {
 		modal = <Modal title="Error" description="The username or password is incorrect" />;
