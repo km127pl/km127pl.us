@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . .
 
+RUN npx vite build
+
 EXPOSE 8080
 
 CMD [ "node", "app.js" ]

@@ -1,4 +1,4 @@
-# km127pl.us [![Docker Image](https://github.com/km127pl/km127pl.us/actions/workflows/docker-image.yml/badge.svg)](https://github.com/km127pl/km127pl.us/actions/workflows/docker-image.yml)
+# km127pl.us
 
 <details>
 <summary>Preview</summary>
@@ -6,41 +6,32 @@
 
 #### Homepage
 
-![km127pl website](/demo/demo.png)
+![km127pl website](/demo/home.png)
 
 #### 404 Page
 
-![km127pl website](/demo/demo-404.png)
-
+![km127pl website](/demo/error.png)
 
 </details>
 
 ### Running
 1. Install all of the dependencies
 ```sh
-yarn install --production
-# or for development mode
 yarn install
 ```
-2. Run the website
+2. Make a production build
 ```sh
-yarn run start
-# or for development mode
-yarn run dev:webserver
+yarn vite build
+yarn vite optimize --force
 ```
-
-#### Running (Docker)
-1. Build the docker image
+### Development
+1. Install all of the dependencies
 ```sh
-docker build . -t <your name>/website
-# or pull ours
-docker pull ghcr.io/km127pl/km127pl.us:master
+yarn install
 ```
-2. Run the docker image
+1. Run the website
 ```sh
-docker run -p 8080:8080 -d <your name>/website
-# or run ours
-docker run -p 8080:8080 -d ghcr.io/km127pl/km127pl.us:master
+yarn run dev
 ```
 
 ### License
