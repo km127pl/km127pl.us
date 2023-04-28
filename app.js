@@ -9,6 +9,7 @@ import { Config } from "./config.js";
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.set('trust proxy', 1)
 app.use(session({
 	secret: Config.COOKIE.SECRET,

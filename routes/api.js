@@ -63,7 +63,6 @@ api.put('/blog/posts/:id', async (req, res) => {
 	}
 	const postId = req.params.id;
 	const { description, thumbnail, url, title } = req.body;
-
 	try {
 		// Get a connection from the pool
 		const conn = await pool.getConnection();
@@ -78,11 +77,14 @@ api.put('/blog/posts/:id', async (req, res) => {
 		// Release the connection
 		conn.release();
 
+		console.log(result);
 		// Send the updated post as a response
-		res.json(result);
+		res.status(204).json({
+			message: 'Post updated successfuly'
+		})
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ message: 'Error updating post.' });
+		res.status(503).json({ message: 'Error updating post.' });
 	}
 });
 

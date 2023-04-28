@@ -20,11 +20,8 @@ const pool = mariadb.createPool({
  * @returns  a boolean
  */
 export const isLoggedIn = (req) => {
-	if (req.session == undefined || req.session.user == undefined) return false;
-	if ((req.session?.user) || req.session.user?.loggedIn == true) {
-		return false;
-	}
-	return true;
+	if (!req.session || !req.session.user || !req.session.user.loggedIn) return false;
+	if (req.session.user.loggedIn) return true;
 }
 
 /**
