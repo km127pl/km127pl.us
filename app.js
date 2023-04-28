@@ -4,19 +4,20 @@ import { fileURLToPath } from 'url';
 import bodyParser from "body-parser";
 import session from 'express-session';
 import api from './routes/api.js';
+import { Config } from "./config.js";
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('trust proxy', 1)
 app.use(session({
-	secret: "1fdd12e", // CHANGE ME ON PRODUCTION
+	secret: Config.COOKIE.SECRET,
 	resave: false,
 	saveUninitialized: true,
 	cookie: {
 		secure: false,
 		path: '/',
-		maxAge: 3600 * 60 * 60 * 24
+		maxAge: Config.COOKIE.AGE
 	},
 	name: "km"
 }))
