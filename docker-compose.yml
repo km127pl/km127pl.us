@@ -16,20 +16,13 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment:
-      DB_PASSWORD_FILE: /run/secrets/db_password
+      DB_PASSWORD_FILE: ${DB_PASSWORD}
       DB_HOST: db
-      DB_USER: /run/secrets/DB_USER
-      DB_NAME: /run/secrets/DB_NAME
+      DB_USER: ${DB_USER}
+      DB_NAME: ${DB_NAME}
     ports:
       - "8080:8080"
     secrets:
       - DB_PASSWORD
       - DB_USER
       - DB_NAME
-secrets:
-  DB_PASSWORD:
-    external: true
-  DB_USER:
-    external: true
-  DB_NAME:
-    external: true
