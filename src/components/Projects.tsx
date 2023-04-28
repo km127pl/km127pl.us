@@ -8,7 +8,7 @@ export const Projects = () => {
 					<div className="grid grid-cols-2 gap-6 py-12 md:grid-cols-2 lg:grid-cols-4">
 						<Project title="Rusteware" description="A warehouse inventory management software that helps you keep track of your inventory levels, orders, and generate reports. " link="https://github.com/km127pl/rusteware" image="/refraction.png" />
 						<Project title="Miner's Companion" description="The Miner's Companion mod offers a diverse selection of tools and features that enhance the efficiency and ease of mining." link="https://github.com/km127pl/minerscompanion" image="/miners-companion.png" />
-						<Project title="Unknown" description="This project still remains unseen!" link="#" image="/unknown.png" />
+						<Project title="Celestial Dungeons" description="CelestialDungeons is a Minecraft plugin that generates random, rogue-like dungeons for players to explore." link="https://github.com/km127pl/celestialdungeons" image="/celestial-dungeons.png" />
 						<Project title="Unknown" description="This project still remains unseen!" link="#" image="/unknown.png" />
 					</div>
 				</div>
