@@ -4,10 +4,10 @@ services:
     image: mariadb
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${db_password}
-      MYSQL_USER: ${db_user}
-      MYSQL_PASSWORD: ${db_password}
-      MYSQL_DATABASE: ${db_name}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
     ports:
       - "3306:3306"
   node:
@@ -18,18 +18,18 @@ services:
     environment:
       DB_PASSWORD_FILE: /run/secrets/db_password
       DB_HOST: db
-      DB_USER: /run/secrets/db_user
-      DB_NAME: /run/secrets/db_name
+      DB_USER: /run/secrets/DB_USER
+      DB_NAME: /run/secrets/DB_NAME
     ports:
       - "8080:8080"
     secrets:
-      - db_password
-      - db_user
-      - db_name
+      - DB_PASSWORD
+      - DB_USER
+      - DB_NAME
 secrets:
-  db_password:
+  DB_PASSWORD:
     external: true
-  db_name:
+  DB_USER:
     external: true
-  db_user:
+  DB_NAME:
     external: true

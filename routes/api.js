@@ -2,16 +2,17 @@ import express from 'express';
 const api = express.Router();
 import mariadb from 'mariadb';
 import adminApi, { isLoggedIn } from "./admin.js";
-import { Config } from "../config.js";
+import dotenv from 'dotenv';
 
+dotenv.config();
 // create a mariadb pool
 const pool = mariadb.createPool({
 	//TODO:replace with env variables
-	host: Config.HOST,
-	user: Config.USER,
-	password: Config.PASSWORD,
-	database: Config.DATABASE,
-	connectionLimit: Config.CONNECTION_LIMIT
+	host: process.env.DB_HOST,
+	user: process.env.DB_USER,
+	password: process.env.DB_PASSWORD,
+	database: process.env.DB_NAME,
+	connectionLimit: parseInt(process.env.CONNECTION_LIMIT)
 });
 
 api.use('/admin', adminApi);
