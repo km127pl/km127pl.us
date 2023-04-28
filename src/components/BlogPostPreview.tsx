@@ -34,6 +34,7 @@ function timeSince(timestamp: number) {
 }
 
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const BlogPostPreview = ({ title, description, link, section, author, timestamp }: BlogPostPreview) => {
 	return <li className="space-y-3 px-3 py-2.5 lg:px-6 lg:py-5  bg-white">
 		<a className="group" href={link}>
