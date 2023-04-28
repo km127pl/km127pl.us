@@ -26,7 +26,6 @@ services:
       - db_password
       - db_user
       - db_name
-      - db_password
 secrets:
   db_password:
     external: true
