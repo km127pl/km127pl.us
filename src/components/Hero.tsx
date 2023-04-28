@@ -35,6 +35,9 @@ export const Hero = () => {
 						<a className="p-1 -m-1 group" aria-label="Follow on GitHub" href="https://github.com/km127pl">
 							<ion-icon className="w-6 h-6 transition fill-black hover:text-blue-500 md hydrated" name="logo-github" role="img" aria-label="logo github"></ion-icon>
 						</a>
+						<a className="p-1 -m-1 group" aria-label="PGP Key" href="https://gist.github.com/km127pl/98b0512b0a4333b9b8077796affa68ba">
+							<ion-icon className="w-6 h-6 transition fill-black hover:text-blue-500 md hydrated" name="key-outline" role="img" aria-label="key outline"></ion-icon>
+						</a>
 					</div>
 				</div>
 			</section>

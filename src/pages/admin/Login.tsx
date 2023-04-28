@@ -1,14 +1,34 @@
+import { redirect } from "react-router-dom";
+import { Modal } from "../../components/Modal"
+import { useEffect, useState } from "react";
 
+interface SessionAPIResponse extends Response {
+	loggedIn: boolean
+}
 
 export const LoginPage = () => {
+	const urlParams = new URLSearchParams(window.location.search);
+	const code = urlParams.get('code');
+	let modal;
+
+	if (code == "0x00") {
+		modal = <Modal title="Error" description="The username or password is incorrect" />;
+	} else if (code == "0x01") {
+		modal = <Modal title="Error" description="An unexpected error has occured" />;
+	} else {
+		modal = <></>
+	}
+
 	return <>
+		{modal}
 		<img src="/background.png" className="absolute" alt="" style={{
 			zIndex: -1,
 			pointerEvents: 'none',
 			height: "100%"
 		}} />
 		<section className="flex justify-center content-center place-content-center" style={{
-			height: "100vh"
+			height: "100vh",
+			zIndex: 1
 		}}>
 			<div className="relative flex justify-center content-center place-content-center max-h-full h-full overflow-hidden lg:px-0 md:px-12" style={{
 				backgroundColor: "rgba(255,255,255,0.1)",
