@@ -8,7 +8,7 @@ export const Hero = () => {
 						<div className="justify-center w-full mx-auto">
 
 							<p className="mt-8 text-5xl font-medium tracking-tighter text-black">
-								I'm KM127PL
+								I'm <span className="text-gradient">KM127PL</span>
 							</p>
 							<p className="max-w-xl mx-auto mt-4 text-lg tracking-tight text-gray-600">
 								Just some guy who likes software development

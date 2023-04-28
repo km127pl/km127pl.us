@@ -6,7 +6,6 @@ export const Error = () => {
 			<div className="w-full mx-auto lg:max-w-6xl">
 				<div className="max-w-xl lg:p-10">
 					<div>
-
 						<p className="text-4xl text-slate-900 ">
 							Error 404
 						</p>
