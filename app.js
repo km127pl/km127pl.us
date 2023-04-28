@@ -7,9 +7,10 @@ const app = express();
 app.use(express.static('./dist'));
 
 app.get('*', (req, res) => {
+	console.log(`[${req.method}] on '${req.path}' at '${new Date(Date.now()).toISOString()}'`);
 	res.sendFile(path.join(path.dirname(fileURLToPath(import.meta.url)), '/dist/index.html'));
 });
 
-app.listen(80, () => {
-	console.log('Server started on http://localhost');
+app.listen(8080, () => {
+	console.log('Server started on http://localhost:8080');
 });
