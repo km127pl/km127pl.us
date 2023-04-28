@@ -1,0 +1,36 @@
+version: '3'
+services:
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${db_password}
+      MYSQL_USER: ${db_user}
+      MYSQL_PASSWORD: ${db_password}
+      MYSQL_DATABASE: ${db_name}
+    ports:
+      - "3306:3306"
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      DB_PASSWORD_FILE: /run/secrets/db_password
+      DB_HOST: db
+      DB_USER: /run/secrets/db_user
+      DB_NAME: /run/secrets/db_name
+    ports:
+      - "8080:8080"
+    secrets:
+      - db_password
+      - db_user
+      - db_name
+      - db_password
+secrets:
+  db_password:
+    external: true
+  db_name:
+    external: true
+  db_user:
+    external: true
