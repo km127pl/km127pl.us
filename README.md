@@ -14,12 +14,22 @@
 
 </details>
 
+### Running
+1. Install all of the dependencies
+```sh
+yarn install
+```
+2. Make a production build
+```sh
+yarn vite build
+yarn vite optimize --force
+```
 ### Development
 1. Install all of the dependencies
 ```sh
 yarn install
 ```
-2. Run the website
+1. Run the website
 ```sh
 yarn run dev
 ```
