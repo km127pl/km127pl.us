@@ -2,8 +2,8 @@ version: '3'
 services:
   db:
     build:
-      context: ./db
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: Dockerfile.db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
