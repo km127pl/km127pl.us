@@ -63,11 +63,14 @@ sessionStore.onReady().then(() => {
 });
 
 const _http = http.createServer(app);
-const _https = https.createServer(ssl);
+let _https;
 
 _http.listen(process.env.WEB_PORT);
-_https.listen(process.env.WEB_PORT_SSL);
 
 console.log(`Listening on: `)
-console.log(`	https://${process.env.DOMAIN}:${process.env.WEB_PORT_SSL}`);
+if (process.env.SSL_ENABLED) {
+	_https = https.createServer(ssl);
+	_https.listen(process.env.WEB_PORT_SSL);
+	console.log(`	https://${process.env.DOMAIN}:${process.env.WEB_PORT_SSL}`);
+}
 console.log(`	http://127.0.0.1:${process.env.WEB_PORT}`);
