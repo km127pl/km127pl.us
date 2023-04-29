@@ -12,10 +12,13 @@ services:
       MYSQL_DATABASE: ${DB_NAME}
     ports:
       - "3306:3306"
+    volumes:
+      - ./docker-entrypoint.sh:/docker-entrypoint.sh
+      - ./import.sql:/import.sql
   node:
     build:
       context: .
-      dockerfile: Dockerfile
+      dosckerfile: Dockerfile
     restart: always
     environment:
       DB_PASSWORD_FILE: ${DB_PASSWORD}
