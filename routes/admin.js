@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 // create a mariadb pool
+/* eslint-disable no-undef */
 const pool = mariadb.createPool({
 	//TODO:replace with env variables
 	host: process.env.DB_HOST,

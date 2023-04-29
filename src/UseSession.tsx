@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 
-interface SessionResponse {
+export interface SessionResponse {
 	isLoggedIn: boolean;
 	username?: string;
+	role?: string;
 }
 
 const useSession = (): SessionResponse => {
