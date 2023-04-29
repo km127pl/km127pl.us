@@ -7,7 +7,15 @@ import session from 'express-session';
 import api from './routes/api.js';
 import dotenv from 'dotenv';
 import MySQLSession from 'express-mysql-session';
+import http from 'http';
+import https from 'https';
+import { readFileSync } from 'fs';
 const MySQLStore = MySQLSession(session);
+
+const ssl = {
+	key: readFileSync(`./ssl/${process.env.DOMAIN}.key`),
+	cert: readFileSync(`./ssl/${process.env.DOMAIN}.pem`)
+}
 
 dotenv.config();
 
@@ -54,6 +62,12 @@ sessionStore.onReady().then(() => {
 	console.error(error);
 });
 
-app.listen(process.env.WEB_PORT, () => {
-	console.log('Server started on http://localhost:' + process.env.WEB_PORT);
-});
+const _http = http.createServer(app);
+const _https = https.createServer(ssl);
+
+_http.listen(process.env.WEB_PORT);
+_https.listen(process.env.WEB_PORT_SSL);
+
+console.log(`Listening on: `)
+console.log(`	https://${process.env.DOMAIN}:${process.env.WEB_PORT_SSL}`);
+console.log(`	http://127.0.0.1:${process.env.WEB_PORT}`);
