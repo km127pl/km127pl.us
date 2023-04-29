@@ -37,7 +37,8 @@ admin.get('/session', async (req, res) => {
 	if (isLoggedIn(req)) {
 		return res.json({
 			isLoggedIn: true,
-			username: req.session.user.username
+			username: req.session.user.username,
+			role: req.session.user.role ?? "Administrator"
 		});
 	} else {
 		return res.json({
@@ -82,6 +83,13 @@ admin.post('/login', async (req, res) => {
 	} catch (e) {
 		return res.redirect("/admin/login?code=0x01"); // "unknown database error"
 	}
+});
+
+admin.all('/logout', async (req, res) => {
+	req.session.destroy((err) => {
+		if (err) console.error(err);
+		res.redirect("/admin/login");
+	}); // destroy the session
 })
 
 export default admin;

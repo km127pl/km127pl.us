@@ -17,6 +17,11 @@ const pool = mariadb.createPool({
 
 api.use('/admin', adminApi);
 
+api.get('*', async (req, res, next) => {
+	console.log(`[${req.method}] api${req.path} at ${new Date(Date.now()).toISOString()}`);
+	next();
+})
+
 api.get('/blog/posts', async (req, res) => {
 	let connection;
 	try {
