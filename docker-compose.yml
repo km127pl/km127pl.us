@@ -18,7 +18,7 @@ services:
   node:
     build:
       context: .
-      dosckerfile: Dockerfile
+      dockerfile: Dockerfile
     restart: always
     environment:
       DB_PASSWORD_FILE: ${DB_PASSWORD}
