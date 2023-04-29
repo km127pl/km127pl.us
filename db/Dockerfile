@@ -1,7 +1,9 @@
 FROM mariadb
 
-COPY docker-entrypoint.sh /usr/local/bin/
+WORKDIR /usr/src/app
+
+COPY docker-entrypoint.sh /var/app/
 COPY import.sql /docker-entrypoint-initdb.d/
 
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["mysqld"]
