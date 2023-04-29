@@ -1,7 +1,9 @@
 version: '3'
 services:
   db:
-    image: mariadb
+    build:
+      context: ./db
+      dockerfile: Dockerfile
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
