@@ -1,13 +1,7 @@
 version: '3'
 services:
   db:
-<<<<<<< HEAD
-    build:
-      context: .
-      dockerfile: Dockerfile.db
-=======
     image: mariadb
->>>>>>> parent of 45bd822 (Auto import SQL on docker compose)
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -16,9 +10,6 @@ services:
       MYSQL_DATABASE: ${DB_NAME}
     ports:
       - "3306:3306"
-    volumes:
-      - ./docker-entrypoint.sh:/docker-entrypoint.sh
-      - ./import.sql:/import.sql
   node:
     build:
       context: .
