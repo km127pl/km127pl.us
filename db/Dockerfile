@@ -1,6 +1,6 @@
 FROM mariadb
 
-WORKDIR /usr/src/app
+WORKDIR /var/app
 
 COPY docker-entrypoint.sh /var/app/
 COPY import.sql /docker-entrypoint-initdb.d/
