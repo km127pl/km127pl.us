@@ -24,6 +24,9 @@ yarn install
 yarn vite build
 yarn vite optimize --force
 ```
+3. Fill out the `.env` file
+4. If enabled, put certificates in `ssl/domain.key` and `ssl/domain.pem`
+5. Run with `node app.js`
 ### Development
 1. Install all of the dependencies
 ```sh
