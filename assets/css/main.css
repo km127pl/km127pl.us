@@ -3,6 +3,7 @@
 /* Catppuccin 'Mocha' Color scheme */
 :root {
 	--pink: #f5c2e7; /* Pink */
+	--teal: #94e2d5; /* Teal */
 
 	--fg-sec: #9399b2; /* Overlay2 */
 	--fg: #cdd6f4; /* Text */
@@ -14,19 +15,44 @@
 body {
 	font-family: "Silkscreen";
 
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-
 	height: 100vh;
 	margin: 0;
 	padding: 0;
 
 	background-color: var(--bg);
 	color: var(--fg);
+	display: grid;
+	grid-template-rows: 1fr 1fr; /* Two rows with equal height */
+	height: 100vh; /* Make the grid take the full height of the viewport */
+}
+
+#title {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: end;
+}
+
+#meantime {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 p {
 	color: var(--fg-sec);
+}
+
+ul {
+	list-style-type: "- ";
+	color: var(--fg-sec);
+}
+
+a {
+	transition: 300ms color;
+	color: var(--teal);
+}
+
+a:hover {
+	color: var(--pink);
 }
