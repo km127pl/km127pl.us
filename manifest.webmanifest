@@ -1,0 +1,17 @@
+{
+	"name": "km127pl.us",
+	"short_name": "km127pl",
+	"theme_color": "#f5c2e7",
+	"background_color": "#181825",
+	"display": "browser",
+	"orientation": "portrait",
+	"scope": "/",
+	"start_url": "/",
+	"icons": [
+		{
+			"src": "/assets/img/avatar-rounded.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}

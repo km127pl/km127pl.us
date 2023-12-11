@@ -1,0 +1,32 @@
+@import url("/assets/fonts/silkscreen.css");
+
+/* Catppuccin 'Mocha' Color scheme */
+:root {
+	--pink: #f5c2e7; /* Pink */
+
+	--fg-sec: #9399b2; /* Overlay2 */
+	--fg: #cdd6f4; /* Text */
+
+	--bg-sec: #181825; /* Mantle */
+	--bg: #11111b; /* Crust */
+}
+
+body {
+	font-family: "Silkscreen";
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+
+	background-color: var(--bg);
+	color: var(--fg);
+}
+
+p {
+	color: var(--fg-sec);
+}
