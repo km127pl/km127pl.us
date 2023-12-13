@@ -19,7 +19,9 @@ body {
 	margin: 0;
 	padding: 0;
 
-	background-color: var(--bg);
+	background: var(--bg);
+	background: radial-gradient(circle, var(--bg-sec) 0%, var(--bg) 35%);
+
 	color: var(--fg);
 	display: grid;
 	grid-template-rows: 1fr 1fr; /* Two rows with equal height */
